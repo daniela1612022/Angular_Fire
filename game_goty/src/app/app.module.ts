@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 //Firebase - Firestore
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-//import { AngularFireModule } from '@angular/fire/compat';
-import { FirestoreModule} from '@angular/fire/firestore';
+//import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+//import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { enviroment } from '../enviroments/enviroment';
 
 import { InicioComponent } from './pages/inicio/inicio.component';
@@ -30,11 +30,10 @@ import { ComponentsModule } from './components/components.module';
     AppRoutingModule,
     ComponentsModule,
     HttpClientModule,
-    FirestoreModule,
-    //AngularFirestoreModule,
-    //AngularFireModule.initializeApp(enviroment.firebase)
-    provideFirebaseApp(() => initializeApp(enviroment.firebase)),
-    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(enviroment.firebase),
+    AngularFirestoreModule
+    //provideFirebaseApp(() => initializeApp(enviroment.firebase)),
+    //provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
